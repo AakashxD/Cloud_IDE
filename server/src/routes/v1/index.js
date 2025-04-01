@@ -1,6 +1,8 @@
 import express from "express"
-const v1router=express.Router();
-  v1router.get('/',(req,res)=>{
+import  createProjectController  from '../../controllers/projectController.js'
+const router=express.Router();
+  router.get('/',(req,res)=>{
     res.json({ message: "This is the ping URL" });
   })
-export default v1router;
+  router.post('/projects',createProjectController);
+export default router;
