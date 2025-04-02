@@ -1,13 +1,10 @@
-import { useEffect } from 'react'
+
 import './App.css'
-import { pingApi } from './apis/ping';
+import CreateProject from './pages/CreateProject';
 function App() {
-  useEffect(()=>{
-        pingApi();
-  },[]);
 
   return (
-   <h2>Help</h2>
+    <CreateProject/>
   )
 }
 
