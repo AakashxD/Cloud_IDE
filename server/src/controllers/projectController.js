@@ -13,7 +13,7 @@ const execPromisified = util.promisify(childProcess.exec);
         await fs.mkdir(`./projects/${projectId}`, { recursive: true });
 
         // Run the Vite command inside the new folder
-        await execPromisified(`npm create vite@latest . -- --template react`, {
+        await execPromisified(`npm create vite@latest my-app -- --template react`, {
             cwd: `./projects/${projectId}`
         });
 
