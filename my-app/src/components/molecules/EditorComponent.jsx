@@ -1,46 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import Editor from '@monaco-editor/react';
+import { EditorButton } from '../atoms/EditorButton/EditorButton';
 
 const EditorComponent = () => {
   const [themeData, setThemeData] = useState(null);
   const [monacoInstance, setMonacoInstance] = useState(null);
 
   useEffect(() => {
-    // fetch theme JSON
-    fetch('/themes/Dracula.json') 
+    fetch('/themes/Dracula.json')
       .then((res) => res.json())
-      .then((data) => {
-        setThemeData(data);
-      });
+      .then((data) => setThemeData(data));
   }, []);
 
   useEffect(() => {
-    // when both monaco and theme are ready
-    // we can write func instead for this
     if (monacoInstance && themeData) {
       monacoInstance.editor.defineTheme('dracula', themeData);
       monacoInstance.editor.setTheme('dracula');
-      console.log('theme updated!');
     }
-  }, [monacoInstance, themeData]); // watch both
+  }, [monacoInstance, themeData]);
 
   const handleEditorMount = (editor, monaco) => {
     setMonacoInstance(monaco);
   };
 
   return (
-    <div>
+    <div style={{ height: '100vh', width: '100vw', backgroundColor: '#1e1e1e', margin: 0, padding: 0 }}>
       <Editor
-        height="90vh"
-        width="100vw"
+        height="100%"
+        width="100%"
         defaultLanguage="javascript"
-        defaultValue="// Write your code"
+        defaultValue="// Write your code here..."
         onMount={handleEditorMount}
+        theme="vs-dark" // fallback until Dracula loads
         options={{
-          fontSize: 18,
-          fontFamily: 'monospace',
+          fontSize: 16,
+          fontFamily: 'Fira Code, monospace',
+          minimap: { enabled: false },
+          lineNumbers: 'on',
+          scrollBeyondLastLine: false,
+          wordWrap: 'on',
+          automaticLayout: true,
+          tabSize: 2,
+          padding: { top: 16 },
         }}
       />
+      <div>
+        <EditorButton  isActive={true}/>
+        <EditorButton/>
+      </div>
     </div>
   );
 };
