@@ -2,9 +2,9 @@ import './EditorButton.css'
 export const EditorButton=({isActive})=>{
     
     return (
-       <button className="editor-button"
+       <button className="editor-button "
         style={{
-           background: (isActive)?"white":"yellow"
+           background: (isActive)?"Black":"purple"
         }}
         >
         File.js

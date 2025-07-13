@@ -6,7 +6,7 @@ const ProjectPlayground = () => {
   return (
     <>
       <div>
-       <h2> ProjectPlayground Project :{projectId}</h2>
+      <h2> ProjectPlayground Project :{projectId}</h2>
         <EditorComponent />
       </div>
     </>
