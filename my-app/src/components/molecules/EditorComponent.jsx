@@ -33,30 +33,32 @@ const EditorComponent = () => {
       color: '#fff',
       overflow: 'hidden',
     }}>
+
+      
       {/* Editor File Buttons */}
       <div style={{
         display: 'flex',
        // justifyContent: 'center',
-        gap: '0.5rem',
-       padding: '0.5rem',
-        backgroundColor: '#2e2e2eff',
-        borderTop: '2px solid #f1e6e6ff',
+        gap: '0.3rem',
+       padding: '0.2rem',
+        backgroundColor: '#858181ff',
+        borderTop: '2px solid #1b1a1aff',
       }}>
         <EditorButton isActive={true} />
         <EditorButton />
       </div>
-      {/* style={{
+      
+      <div  style={{
   display: 'flex',
   flexDirection: 'column',
   height: '80vh',
   width: '100vw',
-  backgroundColor: '#1b1a1aff',
+  backgroundColor: '#191818ff',
   color: '#fff',
-  margin: 0,       // <--- important
-  padding: 0,      // <--- important
+  margin: 0,       
+  padding: 0,     
   overflow: 'hidden'
-}}  useless for below div*/}
-      <div >
+}}  >
         <Editor
           height="100%"
           width="100%"
