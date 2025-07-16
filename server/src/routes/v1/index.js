@@ -3,8 +3,8 @@ import  {createProjectController } from '../../controllers/projectController.js'
 import {getProjectTreeController}  from '../../controllers/projectController.js'
 const router=express.Router();
 
-  router.get('/projects/:projectId',getProjectTreeController);
+  router.get('/project/tree/:projectId',getProjectTreeController);
 
-  router.post('/projects',createProjectController);
+  router.post('/project',createProjectController);
   
 export default router;
